@@ -1,0 +1,15 @@
+{% extends "inicio.html" %}
+
+{% block contenidoQueCambia %}
+<div class="container py-5">
+  <h2>Detalle del médico</h2>
+
+  <p><strong>Nombre:</strong> {{ medico.nombre }} {{ medico.apellido }}</p>
+  <p><strong>Email:</strong> {{ medico.email }}</p>
+  <p><strong>Especialidad:</strong> {{ medico.especialidad }}</p>
+
+  <a href="{% url 'Medicos' %}" class="btn btn-secondary">
+    Volver
+  </a>
+</div>
+{% endblock %}

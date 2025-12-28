@@ -1,0 +1,28 @@
+
+{% extends "inicio.html" %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+
+{% block contenidoQueCambia %}
+ 
+    <h1> Editar perfil de {{usuario}} </h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+         
+        <table>
+            {{ form.as_table}}
+            {{ avatar_form.as_table }}
+        <table>
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <a href="{% url "editar_clave" %}" 
+
+    
+    class= "btn btn-primary">Cambiar Clave</a>
+
+{% endblock contenidoQueCambia %}
+
+
+

@@ -1,0 +1,33 @@
+{% extends "inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h1 class="text-center mt-4">Nuestros Servicios</h1>
+
+<div class="container mt-4">
+    <div class="row">
+
+        {% for servicio in servicios %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+
+                <img src="{% static servicio.imagen %}" class="card-img-top" alt="{{ servicio.nombre }}">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ servicio.nombre }}</h5>
+                    <p class="card-text">{{ servicio.descripcion }}</p>
+
+                    <a href="{{ servicio.url }}" class="btn btn-primary w-100">
+                        Pedir turno
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

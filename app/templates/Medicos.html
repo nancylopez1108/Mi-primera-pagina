@@ -1,0 +1,46 @@
+{% extends "inicio.html" %}
+
+{% block contenidoQueCambia %}
+<div class="container py-5">
+  <h2 class="mb-4">Lista de Médicos</h2>
+   {% if user.is_superuser %}
+  <a class="btn btn-primary mb-3" href="{% url 'medicosFormulario' %}">
+    Agregar médico
+  </a>
+   {% endif %}
+
+
+  {% if medicos %}
+    <ul class="list-group">
+      {% for m in medicos %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>
+            {{ m.nombre }} {{ m.apellido }}
+          </span>
+
+          <a class="btn btn-success" href="{% url 'Medicos-detail' m.pk %}" class="btn btn-sm btn-outline-primary">
+            Detalle
+          </a>
+          {% if user.is_superuser %}
+           <a class="btn btn-secondary" href="{% url 'Medicos-Update' m.pk %}">Editar</a>
+           
+            <a class="btn btn-danger"  href="{% url 'Medicos-Delete' m.pk %}">Eliminar</a>
+            {% endif %}
+        </li>
+      {% endfor %}
+
+          
+      <li class="list-group-item">
+      
+        <a href="{% url 'Medicos-Create' %}">Nuevo</a>
+       
+      </li>
+      
+    </ul>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+
+

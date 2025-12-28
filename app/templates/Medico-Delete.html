@@ -1,0 +1,13 @@
+{% extends "inicio.html" %}
+
+{% block contenidoQueCambia %}
+<div class="container py-5">
+  <h2>Borrar médico</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>"Esta seguro de eliminar a este medico? {{medico.nombre}} <p/>
+    <input type="submit" value="Borrar">
+  </form>
+</div>
+{% endblock %}

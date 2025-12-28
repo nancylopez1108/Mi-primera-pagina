@@ -1,0 +1,22 @@
+{% extends "inicio.html" %}
+
+{% block contenidoQueCambia %}
+<div class="container py-5">
+  <h2 class="mb-3">Turnos</h2>
+  <p class="mb-4">Registrá y consultá tus turnos.</p>
+
+  <a href="{% url 'turnosFormulario' %}" class="btn btn-primary me-2">
+    Registrar turno
+  </a>
+
+  {% if user.is_authenticated %}
+    <a href="{% url 'busquedaTurno' %}" class="btn btn-outline-primary">
+      Buscar turno por DNI
+    </a>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+
+

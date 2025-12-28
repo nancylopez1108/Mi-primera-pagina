@@ -1,0 +1,18 @@
+
+{% extends "inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h1>Cambiar clave</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Actualizar" class="btn btn-primary">
+</form>
+
+{% endblock %}
